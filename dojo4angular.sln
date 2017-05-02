@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A43CAF6-3FCE-41A6-91FA-B43E1F6DA62C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{1A43CAF6-3FCE-41A6-91FA-B43E1F6DA62C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{40453D99-A5B6-4549-9590-04FDB9FEF15D}"
 	ProjectSection(SolutionItems) = preProject

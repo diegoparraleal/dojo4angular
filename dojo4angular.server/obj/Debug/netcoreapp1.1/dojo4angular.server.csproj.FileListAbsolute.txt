@@ -1,0 +1,8 @@
+C:\DV_GIT\dojo4angular\dojo4angular.server\bin\Debug\netcoreapp1.1\dojo4angular.server.deps.json
+C:\DV_GIT\dojo4angular\dojo4angular.server\bin\Debug\netcoreapp1.1\dojo4angular.server.runtimeconfig.json
+C:\DV_GIT\dojo4angular\dojo4angular.server\bin\Debug\netcoreapp1.1\dojo4angular.server.runtimeconfig.dev.json
+C:\DV_GIT\dojo4angular\dojo4angular.server\bin\Debug\netcoreapp1.1\dojo4angular.server.dll
+C:\DV_GIT\dojo4angular\dojo4angular.server\bin\Debug\netcoreapp1.1\dojo4angular.server.pdb
+C:\DV_GIT\dojo4angular\dojo4angular.server\obj\Debug\netcoreapp1.1\dojo4angular.server.AssemblyInfo.cs
+C:\DV_GIT\dojo4angular\dojo4angular.server\obj\Debug\netcoreapp1.1\dojo4angular.server.dll
+C:\DV_GIT\dojo4angular\dojo4angular.server\obj\Debug\netcoreapp1.1\dojo4angular.server.pdb

@@ -63,6 +63,10 @@ Show easily how to create a new angular 4 app using angular-cli, including SASS,
 `ng g component users`
 - Modify *app-routing.module.ts*
 ```javascript
+...
+import { ItemsComponent } from './items/items.component';
+import { UsersComponent } from './users/users.component';
+
 const routes: Routes = [
   {
     path: 'items',
@@ -73,6 +77,7 @@ const routes: Routes = [
     component: UsersComponent
   }
 ];
+...
 ```
 - Modify *app.component.html*
 ``` html

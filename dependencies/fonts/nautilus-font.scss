@@ -2,5 +2,7 @@
   font-family: "nautilus";
   font-style: normal;
   font-weight: 600;
-  src: url("~assets/fonts/nautilus/nautilus-webfont.ttf") format("truetype");
+  src: url('nautilus/nautilus-webfont.woff2') format('woff2'),
+       url('nautilus/nautilus-webfont.woff') format('woff'),
+       url('nautilus/nautilus-webfont.ttf') format('truetype');
 }

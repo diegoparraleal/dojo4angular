@@ -1,3 +1,4 @@
+import { ItemsService } from './../services/items.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
+  private items = [];
+  constructor(private itemsService: ItemsService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.items = await this.itemsService.getItems();
   }
 
 }

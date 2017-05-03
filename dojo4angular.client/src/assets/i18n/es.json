@@ -1,0 +1,6 @@
+{
+    "app": {
+        "items": "articulos",
+        "users": "usuarios"
+    }
+}

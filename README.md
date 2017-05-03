@@ -309,3 +309,75 @@ $color2: steelblue;
     }
 }
 ```
+
+### STEP 5 - I18N
+- We will use this approach https://www.npmjs.com/package/ng2-translate
+> `npm install ng2-translate --save`
+- Add to app.module
+``` javascript
+...
+import { HttpModule, Http } from '@angular/http';
+import {TranslateModule, TranslateLoader, TranslateStaticLoader} from 'ng2-translate';
+
+export function createTranslateLoader(http: Http) {
+    return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
+
+...
+imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    AppRoutingModule,
+    TranslateModule.forRoot({
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+    })
+  ],
+...
+``` 
+
+- Modify app.component.html (the links) and add some buttons
+``` html
+<a [routerLink]="[ '/items']">{{ 'app.items' | translate }}</a>
+<a [routerLink]="[ '/users']">{{ 'app.users' | translate }}</a>
+<br/>
+<button (click)="switchLang('en')">EN</button>
+<button (click)="switchLang('es')">ES</button>
+```
+
+- Modify app.component.ts to start translate service, and to switch languages
+``` javascript
+...
+import {TranslateService} from 'ng2-translate';
+...
+  constructor(private translate: TranslateService){
+    translate.use('en');    
+  }
+
+  switchLang(lang){
+    this.translate.use(lang); 
+  }
+...
+```
+
+- Create a folder under assets named i18n, and create two files, en.json and es.json
+en.json
+``` javascript
+{
+    "app": {
+        "items": "items",
+        "users": "users"
+    }
+}
+```
+es.json
+``` javascript
+{
+    "app": {
+        "items": "articulos",
+        "users": "usuarios"
+    }
+}
+```

@@ -5,6 +5,9 @@
   <router-outlet></router-outlet>
 </content>
 <footer>
-  <a [routerLink]="[ '/items']">Items</a>
-  <a [routerLink]="[ '/users']">Users</a>
+  <a [routerLink]="[ '/items']">{{ 'app.items' | translate }}</a>
+  <a [routerLink]="[ '/users']">{{ 'app.users' | translate }}</a>
+  <br/>
+  <button (click)="switchLang('en')">EN</button>
+	<button (click)="switchLang('es')">ES</button>
 </footer>

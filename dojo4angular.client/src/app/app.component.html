@@ -1,4 +1,10 @@
 <h1>
   {{title}}
 </h1>
-<router-outlet></router-outlet>
+<content>
+  <router-outlet></router-outlet>
+</content>
+<footer>
+  <a [routerLink]="[ '/items']">Items</a>
+  <a [routerLink]="[ '/users']">Users</a>
+</footer>

@@ -173,3 +173,139 @@ bootstrap: [AppComponent],
 
 - Restart the server, using the following command
 > `ng serve --proxy-config proxy.conf.json`
+
+### STEP 4 - Add styles, images and fonts
+- Add a font (_you can find the font in ./dependencies/fonts_)
+- Copy the fonts and images folder from *./dependencies* to *assets* folder
+- Modify styles.scss to add global styles, and import font stylesheet
+``` css
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "nautilus";
+  font-style: normal;
+  font-weight: 600;
+  src: url('~assets/fonts/nautilus/nautilus-webfont.woff2') format('woff2'),
+       url('~assets/fonts/nautilus/nautilus-webfont.woff') format('woff'),
+       url('~assets/fonts/nautilus/nautilus-webfont.ttf') format('truetype');
+}
+
+*{
+    font-family: "nautilus";
+}
+
+html, body{
+    position: relative;
+    width: 100%;
+    height: 100%;    
+    padding: 0;
+    margin: 0;
+}
+```
+- Create a file under src, named variables.scss and add the following code
+``` css
+$color1: lightsteelblue;
+$color2: steelblue;
+```
+
+- Modify users.component.html to add an image
+``` html
+<p>
+  This is Diego's Car
+  <img class="usercar" />
+</p>
+```
+
+- Modify users.component.scss to add some styles
+``` css
+@import "~variables.scss";
+:host{
+    position: relative;
+    width: 100%;
+    height: 100%;    
+
+    p{
+        width: 100%;
+        height: 100%;
+        font-size: 48px;
+        text-align: center;
+        color: $color2;
+    }
+
+    .usercar{
+        width: 50%;
+        height: 85%;
+        background: url("~assets/images/renault4.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        margin-left: 25%;
+        border: 2px solid $color1;
+        border-radius: 10px;
+    }     
+}
+```
+
+- Modify also app.component.scss to add some nice styles
+``` css
+@import "~variables.scss";
+:host{
+    position: relative;
+    width: 100%;
+    height: 100%;    
+    
+    h1{
+        text-align: center;
+        font-size: 59px;
+        margin: 0;
+        color: $color2;
+        background: $color1;
+        padding: 10px;
+    }
+    
+    content{
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 70%;        
+    }
+
+    footer{
+        text-align: center;
+        font-size: 25px;
+        margin: 0;
+        color: $color2;
+        background: $color1;
+        padding: 10px;
+        display: block;
+
+        a{
+            margin-right: 20px;
+        }
+    }
+}
+```
+
+- Modify items.component.scss to add some nice styles
+``` css
+@import "~variables.scss";
+:host{
+    position: relative;
+    width: 100%;
+    height: 100%;    
+    padding: 50px;
+
+    item{
+        display: block;
+        width: 20%;    
+        height: 200px;    
+        background-color: $color1;
+        color: $color2;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 20px 50px 20px 0px;
+        font-size: 35px;
+        text-align: center;
+        line-height: 200px;
+    }
+}
+```

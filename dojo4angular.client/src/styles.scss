@@ -20,3 +20,15 @@ html, body{
     padding: 0;
     margin: 0;
 }
+
+.megalabel{ 
+    span {
+            font-size: 55px;
+            transform: rotate(-25deg);
+            color: darkgoldenrod;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-left: 15px;
+            font-weight: bold;
+    }
+}

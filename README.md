@@ -412,10 +412,90 @@ es.json
 - Create an IIS app pointing to that --output location
 - Browse your IIS app :)
 
+### EXTRA 1 - Add a third party component
+- Add bootstrap
+> `npm install bootstrap --save` _If we want to use SASS version of bootstrap (so we can modify variables), we can use npm install bootstrap-sass --save_
+- Modify angular-cli.json in order to include bootstrap global styles
+``` javascript
+...
+"styles": [
+    "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "styles.scss"
+],
+...
+```
+- Modify the language buttons at app.component.html
+``` html
+<button class="btn btn-primary" (click)="switchLang('en')">EN</button>
+<button class="btn btn-primary" (click)="switchLang('es')">ES</button>
+```
+- Restart server, because we modified *angular-cli.json*  (ng serve) _We will continue with development server from now on_
+- Add jquery (_or lodash, the steps are the same_)
+> `npm install jquery --save`
+> `npm install @types/jquery --save-dev`
+- Modify scripts tag in angular-cli.json
+``` javascript
+...
+"scripts": [
+    "../node_modules/jquery/dist/jquery.min.js"
+],
+...
+```
+- Modify app.component.ts to use jQuery (_don't forget to add declare var $: any;_)
+``` javascript
+...
+declare var $: any;
+...
+ngOnInit(){
+    let element = $(this.elementRef.nativeElement);
+    element.append("<label class='multilabel'>I SHOULD NOT BE HERE</label>");
+  }
+...
+```'
+- Restart server, because we modified *angular-cli.json*
 
+- Add a 3rd party non packaged jquery plugin http://letteringjs.com/
+- Create a *lib* folder under *src*
+- Copy the jquery plugin there (_you can find the font in ./dependencies/lib_)
+- Modify scripts tag in angular-cli.json
+``` javascript
+...
+"scripts": [
+    "../node_modules/jquery/dist/jquery.min.js",
+    "lib/jquery.lettering.js"
+],
+...
+```
+- Use the jquery plugin in app.component.ts
+``` javascript
+...
+declare var $: any;
+...
+ngOnInit(){
+    let element = $(this.elementRef.nativeElement);
+    element.append("<label class='megalabel'>I SHOULD NOT BE HERE</label>");
+    var label = $("label", element);
+    label.lettering();
+  }
+...
+```'
 
+- Add the following in app.component.ts
+``` css
+.megalabel{ 
+    span {
+            font-size: 55px;
+            transform: rotate(-25deg);
+            color: darkgoldenrod;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-left: 15px;
+            font-weight: bold;
+    }
+}
+```
 
-
-
-
-- Now it is working but the service is not, because for *ng serve* we were using the proxy, to fix that
+- restart server
+- We can see here that styles are not working, that's because angular is using web components technology to avoid styles overlapping, that's the reason behind not using jquery to add html in angular
+- Move those styles to styles.scss, in order to make them work
+- Voilà!

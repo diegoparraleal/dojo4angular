@@ -499,3 +499,22 @@ ngOnInit(){
 - We can see here that styles are not working, that's because angular is using web components technology to avoid styles overlapping, that's the reason behind not using jquery to add html in angular
 - Move those styles to styles.scss, in order to make them work
 - Voilà!
+
+### EXTRA 2 - Make it work in IE
+- Just go to polyfills.ts and uncomment stuff (it will add some bits to the bundles)
+- Note: For IIS, there is a problem with the url routes that needs to be fixed in the following way at index.html
+``` html
+<!--<base href="./">-->
+<script>
+            var isIE = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+            if(isIE){
+        var baseUrl  = window.location.href;
+        if (baseUrl[baseUrl.length - 1] != "/"){
+        baseUrl = baseUrl.substring(0, baseUrl.lastIndexOf("/") + 1);
+        }
+                document.write('<base href="' + baseUrl + '" />');
+            } else {
+                document.write('<base href="./" />');
+            }    
+</script>
+```

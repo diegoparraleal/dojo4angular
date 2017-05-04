@@ -1,0 +1,6 @@
+/dojo4angular.client/node_modules/
+/dojo4angular.client/dist/
+/dojo4angular.server/bin/
+/dojo4angular.server/obj/
+/dojo4angular.server/publish/
+/dojo4angular.server/wwwroot/

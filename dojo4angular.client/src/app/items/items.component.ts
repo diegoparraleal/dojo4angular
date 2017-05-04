@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
-  private items = [];
+  public items = [];
   constructor(private itemsService: ItemsService) { }
 
   async ngOnInit() {

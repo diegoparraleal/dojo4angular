@@ -385,13 +385,37 @@ es.json
 ### STEP 6 - OPTIMIZATIONS FOR PROD
 - Open a new cli window, and locate your *dojo4angular.client* folder
 - Run the following instruction
-> `ng build --watch`
-- Check the dist folder, that's your app ready to be deployed for example in IIS server
-- So, create a virtual directory and point it to the dist folder
+> `ng build --output-path ../dojo4angular.server/wwwroot`
+- restart dotnet server and load http://localhost:5000/ 
+- Check application size -> 2.7MB
+- We need to reduce the bundle size using AoT and Tree Shaking
+- *AoT* https://image.slidesharecdn.com/ahead-of-timecompilation-161013061613/95/angular-2-ahead-oftime-compilation-4-638.jpg?cb=1476339406 
+- *Tree Shaking* https://image.slidesharecdn.com/fd9eibz6qbopsqjxpdxw-signature-a0f221d50696858fb688f0d98641f455dc4186839f4099b982e17204b9f17bec-poli-161205055358/95/senchacon-2016-the-modern-toolchain-ross-gerbasi-14-1024.jpg?cb=1482947006 
+- But with angular-cli is very easy, just run
+> `ng build -prod --aot --output-path ../dojo4angular.server/wwwroot`
+- We have here an error, that's because AoT requires that the variables used in templates must be public, so we just change that in items.components.ts
+> `ng build -prod --aot --output-path ../dojo4angular.server/wwwroot`
+- restart dotnet server and load http://localhost:5000/ 
+- Now the app is 519k :) 
+
+### STEP 6++ - DEPLOY THIS ON IIS
 - In order to make it work with IIS and ng serve at the same time, we need to perform a little change at index.html
 ``` html
 ...
 <base href="./">
 ...
 ```
+- Compile angular application again
+> `ng build -prod --aot --output-path ../dojo4angular.server/wwwroot`
+- Execute the following command
+> `dotnet publish --output publish`
+- Create an IIS app pointing to that --output location
+- Browse your IIS app :)
+
+
+
+
+
+
+
 - Now it is working but the service is not, because for *ng serve* we were using the proxy, to fix that

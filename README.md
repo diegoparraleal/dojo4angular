@@ -381,3 +381,17 @@ es.json
     }
 }
 ```
+
+### STEP 6 - OPTIMIZATIONS FOR PROD
+- Open a new cli window, and locate your *dojo4angular.client* folder
+- Run the following instruction
+> `ng build --watch`
+- Check the dist folder, that's your app ready to be deployed for example in IIS server
+- So, create a virtual directory and point it to the dist folder
+- In order to make it work with IIS and ng serve at the same time, we need to perform a little change at index.html
+``` html
+...
+<base href="./">
+...
+```
+- Now it is working but the service is not, because for *ng serve* we were using the proxy, to fix that

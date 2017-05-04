@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 /dojo4angular.client/node_modules/
 /dojo4angular.client/dist/
-=======
-/dojo4angular.client/node_modules/
-/dojo4angular.client/dist/
->>>>>>> df23b8b3395168c12aa14fd9542603e557900e5b
+/dojo4angular.server/bin/
+/dojo4angular.server/obj/
+/dojo4angular.server/publish/
+/dojo4angular.server/wwwroot/

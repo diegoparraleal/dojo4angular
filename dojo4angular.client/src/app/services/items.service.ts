@@ -8,7 +8,7 @@ export class ItemsService {
   constructor(private http: Http) { }
 
   public async getItems(){
-      var response = await this.http.get("/api/items").toPromise();
+      var response = await this.http.get("api/items").toPromise();
       return response.json();
   }
 }

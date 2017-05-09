@@ -39,10 +39,15 @@ Show easily how to create a new angular 4 app using angular-cli, including SASS,
 > `git clone https://github.com/diegoparraleal/dojo4angular.git --branch dojo`
 - Install angular/cli (globally)
 > `npm install -g @angular/cli`
+
 > `cd dojo4angular`
+
 > `cd dojo4angular.server`
+
 > `dotnet restore`
+
 > `dotnet run`
+
 - Navigate to service in chrome
 	http://localhost:5000/api/items
 
@@ -101,7 +106,7 @@ const routes: Routes = [
 ...
 import { ItemsService } from './services/items.service';
 ...
-providers: [*ItemsService*],
+providers: [ItemsService],
 ...
 ```
 - Implement the service using async/await (_Dont'forgetto add toPromise operator *import "rxjs/add/operator/toPromise";*_)
@@ -448,10 +453,10 @@ declare var $: any;
 ...
 ngOnInit(){
     let element = $(this.elementRef.nativeElement);
-    element.append("<label class='multilabel'>I SHOULD NOT BE HERE</label>");
+    element.append("<label class='megalabel'>I SHOULD NOT BE HERE</label>");
   }
 ...
-```'
+```
 - Restart server, because we modified *angular-cli.json*
 
 - Add a 3rd party non packaged jquery plugin http://letteringjs.com/
@@ -478,7 +483,7 @@ ngOnInit(){
     label.lettering();
   }
 ...
-```'
+```
 
 - Add the following in app.component.ts
 ``` css

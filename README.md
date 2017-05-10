@@ -8,6 +8,7 @@ Show easily how to create a new angular 4 app using angular-cli, including SASS,
 ### PREREQUISITES
 - NodeJS (I have 6.x version)
 - NPM (I have 3.8.7 version)
+- Install GIT
 - Typescript (I have 2.2.1)
 - Install dotnet core sdk (https://www.microsoft.com/net/core#windowscmd) to run the server service
 - Visual studio Code (or favorite editor)
@@ -63,12 +64,15 @@ Show easily how to create a new angular 4 app using angular-cli, including SASS,
 - Create a project
 > `ng new dojo4angular.client --skip-git --skip-commit --style scss --routing`
 - Run the application
+
 > `cd dojo4angular.client`
+
 > `ng serve`
 
 ### STEP 2 - Adding routes and components
 - Add two components
 > `ng g component items`
+
 > `ng g component users`
 - Modify *app-routing.module.ts*
 ```javascript
@@ -440,7 +444,9 @@ es.json
 ```
 - Restart server, because we modified *angular-cli.json*  (ng serve) _We will continue with development server from now on_
 - Add jquery (_or lodash, the steps are the same_)
+
 > `npm install jquery --save`
+
 > `npm install @types/jquery --save-dev`
 - Modify scripts tag in angular-cli.json
 ``` javascript
@@ -478,8 +484,14 @@ ngOnInit(){
 - Use the jquery plugin in app.component.ts
 ``` javascript
 ...
+import { ElementRef } from '@angular/core';
+
 declare var $: any;
 ...
+constructor(private translate: TranslateService, private elementRef: ElementRef){
+    translate.use('en');    
+}
+
 ngOnInit(){
     let element = $(this.elementRef.nativeElement);
     element.append("<label class='megalabel'>I SHOULD NOT BE HERE</label>");
@@ -489,7 +501,7 @@ ngOnInit(){
 ...
 ```
 
-- Add the following in app.component.ts
+- Add the following in app.component.scss
 ``` css
 .megalabel{ 
     span {

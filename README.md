@@ -30,7 +30,8 @@ Show easily how to create a new angular 4 app using angular-cli, including SASS,
 - Install C#, extension (Inside VSCodedotnet)
 - Run in console dotnet new webapi dotnet restore (to download dependencies) dotnet build (to compile)
 - Edit Controllers, in the way you want
-- Run the app In this this case ... dotnet run browse http://localhost:5000/api/items
+- Run the app In this this case ... 
+> `dotnet run browse http://localhost:5000/api/items
 
 
 ### PREVIOUS STEPS (Instructions for Windows Users)

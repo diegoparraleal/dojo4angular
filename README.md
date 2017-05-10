@@ -28,7 +28,10 @@ Show easily how to create a new angular 4 app using angular-cli, including SASS,
 - Download dotnet CORE SDK https://www.microsoft.com/net/core#windowscmd Note: I'm running 1.0.3 version
 - Download and install Visual Studio Code https://code.visualstudio.com/Download
 - Install C#, extension (Inside VSCodedotnet)
-- Run in console dotnet new webapi dotnet restore (to download dependencies) dotnet build (to compile)
+- Run in console 
+> `dotnet new webapi` 
+> `dotnet restore` (to download dependencies) 
+> `dotnet build` (to compile)
 - Edit Controllers, in the way you want
 - Run the app In this this case ... 
 > `dotnet run browse http://localhost:5000/api/items`
